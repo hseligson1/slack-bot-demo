@@ -10,9 +10,8 @@ from datetime import datetime, timedelta
 import time
 
 env_path = Path('.') / '.env'
+##loading environment variable
 load_dotenv(dotenv_path=env_path)
-
-client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
 
 app = Flask(__name__)
 slack_event_adapter = SlackEventAdapter(
@@ -24,7 +23,7 @@ BOT_ID = client.api_call("auth.test")['user_id']
 message_counts = {}
 welcome_messages = {}
 
-BAD_WORDS = ['hmm', 'no', 'tim']
+BAD_WORDS = ['hmm', 'no', 'jerk']
 
 SCHEDULED_MESSAGES = [
     {'text': 'First message', 'post_at': (
@@ -58,7 +57,7 @@ class WelcomeMessage:
         return {
             'ts': self.timestamp,
             'channel': self.channel,
-            'username': 'Welcome Robot!',
+            'username': 'Welcome Sprocky!',
             'icon_emoji': self.icon_emoji,
             'blocks': [
                 self.START_TEXT,
