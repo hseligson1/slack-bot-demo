@@ -1,7 +1,7 @@
 import slack
 import os
 from pathlib import Path
-#loads our Environment Variables
+#loads our Environment Variables(EV)
 from dotenv import load_dotenv
 from flask import Flask, request, Response
 from slackeventsapi import SlackEventAdapter
@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 import time
 
 env_path = Path('.') / '.env'
-##loading environment variable
+##loading EV
 load_dotenv(dotenv_path=env_path)
 
 app = Flask(__name__)
